@@ -5,11 +5,12 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class lucky{
+class lucky {
 	/**
+	 * Matches /lucky exactly
 	 * @Route("/lucky")
 	 */
 	public function showPage(){
-		return new Response('Under the sea!');
+		return new Response('I am so lucky!');
 	}
 }

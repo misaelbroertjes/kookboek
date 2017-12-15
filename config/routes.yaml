@@ -1,6 +1,6 @@
 #index:
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
-#lucky:
-#  path: /lucky
-#  defaults: { '_controler: App\Controller\lucky::showPage' }
+unlucky:
+  path: /unlucky
+  controller: App\Controller\unlucky::showPage
