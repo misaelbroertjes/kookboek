@@ -16,4 +16,7 @@ class recept extends Controller{
 		//return $this->redirect('http://www.google.nl');
 		//return $this->redirectToRoute('unlucky');
 	}
+	
+	
+	
 }
