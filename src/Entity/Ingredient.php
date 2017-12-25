@@ -21,14 +21,35 @@ class Ingredient
 	 * @ORM\Column(type="string", length=200, unique=true)
 	 */
 	private $naam;
-    
-    /**
+	
+	/**
+	 * @ORM\Column(type="string", length=1)
+	 */
+	private $eenheden;
+	
+	/**
 	 * @ORM\Column(type="integer", length=20)
 	 */
  	private $calorieen;
 	
 	
 	// Getters en setters
+	/**
+	 * @return mixed
+	 */
+	public function getEenheden()
+	{
+		return $this->eenheden;
+	}
+	
+	/**
+	 * @param mixed $eenheden
+	 */
+	public function setEenheden($eenheden): void
+	{
+		$this->eenheden = $eenheden;
+	}
+	
 	/**
 	 * @return mixed
 	 */
@@ -76,9 +97,4 @@ class Ingredient
 	{
 		$this->calorieen = $calorieen;
 	}
-	
-	
-	
-	
-	
 }

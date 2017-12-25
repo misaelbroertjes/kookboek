@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %}Ingredient{% endblock %}
 
+
+{% block header %} {{ ingredient.naam | default("Nieuw ingredient") }} {% endblock %}
 {% block body %}
 
     {% if app.request.query.get("error") == "001" %}
@@ -9,9 +11,6 @@
     </div>
     {% endif %}
     <form action="" name="ingredientForm" method="post" >
-        <div>
-            <h1>{{ ingredient.naam | default("Nieuw Ingredient") }}</h1>
-        </div>
         <div class="form-group">
             <label for="naam">Naam</label>
             <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van product" value="{{ ingredient.naam | default("") }}">
@@ -19,7 +18,16 @@
         <div class="form-group">
             <label for="calorieen">Calorieën</label>
             <input type="text" class="form-control" id="calorieen" name="calorieen" placeholder="Aantal calorieën van product" value="{{ ingredient.calorieen | default("")  }}">
-            <small>per 100 gram</small>
+            <small>per 100 gram of per stuk</small>
+        </div>
+        <div class="form-group">
+            <label>Eenheden</label>
+            <div class="radio">
+                <label><input type="radio" name="eenheden" value="0" {% if ingredient.eenheden is defined and ingredient.eenheden == 0 %} checked="checked" {% endif %}> Per 100 gram</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="eenheden" value="1" {% if ingredient.eenheden is defined and ingredient.eenheden == 1 %} checked="checked" {% endif %}> Per stuk</label>
+            </div>
         </div>
         <div class="form-group">
             <input type="hidden" name="id" value="{{ ingredient.id | default("") }}">

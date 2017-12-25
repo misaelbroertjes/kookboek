@@ -64,6 +64,7 @@ class IngredientController extends Controller
 		// Haal gevonden waarde uit de POST
 		$naam = $request->request->get('naam');
 		$calorieen = $request->request->get('calorieen');
+		$eenheden = $request->request->get('eenheden');
 		$id = $request->request->get('id');
 		
 		// Start de doctrine manager
@@ -94,6 +95,7 @@ class IngredientController extends Controller
 		$ingredient->setId($id);
 		$ingredient->setNaam($naam);
 		$ingredient->setCalorieen($calorieen);
+		$ingredient->setEenheden($eenheden);
 		
 		// Geef aan het object te willen bewaren
 		$em->persist($ingredient);
