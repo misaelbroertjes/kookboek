@@ -102,6 +102,29 @@ class IngredientController extends Controller
 		$em->flush();
 		
 		return $this->redirectToRoute("ingredienten");
+	}
+	
+	/**
+	 * Verwerken van een ingredient aanpassing of aanmaken
+	 * @Route("/ingredient/delete/{id}")
+	 */
+	public function ingedrientVerwijderen($id)
+	{
+		// Start de doctrine manager
+		$em = $this->getDoctrine()->getManager();
 		
+		// Maak een repo aan voor resultaten van de database
+		$repository = $this->getDoctrine()->getRepository(Ingredient::class);
+		
+		// Haal het te verwijderen ingredient op
+		$ingredient = $em->getRepository(Ingredient::class)->find($id);
+		
+		// Maak de opdracht voor verwijderen aan
+		$em->remove($ingredient);
+		
+		// Verwijder uit dataabase
+		$em->flush();
+		
+		return $this->redirectToRoute("ingredienten" );
 	}
 }

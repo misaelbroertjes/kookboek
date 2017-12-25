@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block title %}Home{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="jumbotron">
+        <h1>Ons kookboek</h1>
+        <p>Dit is onze koekbook aplicatie. Het bied de mogelijkheid om recepten op te slaan en een weekplanning te maken. Het aanmaken van een recept is eenvoudig en al snel is een weekplanning makkelijk gevuld met de recepten die je zo heerlijk smaken.</p>
+        <p>Geen boodschappenlijstje meer hoeven maken, niet meer elke dag opnieuw moeten bedenken wat je gaat eten. Voortaan helpt ons kookboek ook jou om gemakkelijker, gevarieerd en lekker te eten.</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Statestieken</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-primary">
+                Recepten
+                <span class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-primary">
+                Ingredienten
+                <span class="badge badge-primary badge-pill">{{ ingredienten | length }}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <h2>Updates</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h4>Ingredienten geactiveerd</h4>
+                <small>25-12-2017</small>
+                <p>Ingredienten zijn klaar gemaakt voor gebruikt. Momenteel zijn de volgende opties klaar voor gebruik: Aanmaken van ingredienten, updaten van ingredienten en verwijderen van ingredienten.</p>
+            </li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary">
+                <h4>Homepage aangemaakt</h4>
+                <small>25-12-2017</small>
+                <p>De homepage is aangemaakt met een intro tekst en een overzicht van de ingredienten en updates.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

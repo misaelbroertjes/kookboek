@@ -23,7 +23,8 @@
         </div>
         <div class="form-group">
             <input type="hidden" name="id" value="{{ ingredient.id | default("") }}">
-            <button type="submit" class="btn  btn-primary">Opslaan</button> <a href="{{ path('ingredienten') }}" class="btn btn-danger">Annuleren</a>
+            <button type="submit" class="btn  btn-primary"> <i class="far fa-check-circle"></i> Opslaan</button>
+            <a href="{{ path('ingredienten') }}" class="btn btn-danger"><i class="fas fa-ban"></i> Annuleren</a>
         </div>
     </form>
 {% endblock %}
