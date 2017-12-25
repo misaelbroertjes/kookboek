@@ -24,7 +24,7 @@
     <td>{{ item.calorieen }}</td>
     <td class="text-right">
         <a href="{{ path('ingredient') }}/{{ item.id }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Aanpassen</a>
-        <a href="{{ path('ingredient') }}/delete/{{ item.id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" ></i> Delete</a>
+        <a href="{{ path('ingredient') }}/delete/{{ item.id }}" class="btn btn-danger btn-sm" onclick="return confirm('Weet je het zeker?')"><i class="fas fa-trash-alt" ></i> Delete</a>
     </td>
 </tr>
 {%  endfor %}
