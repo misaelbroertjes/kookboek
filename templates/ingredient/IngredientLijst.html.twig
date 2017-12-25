@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ingredienten{% endblock %}
+
+{% block body %}
+<table class="table">
+<thead class="thead-dark">
+<tr>
+    <th >Id</th>
+    <th >Naam</th>
+    <th >Calorieën</th>
+    <th><a href="{{ path('ingredient') }}">Nieuw</a> </th>
+</tr>
+</thead>
+<tbody>
+
+{% for item in ingredienten %}
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.naam }}</td>
+    <td>{{ item.calorieen }}</td>
+    <td><a href="{{ path('ingredient') }}/{{ item.id }}">aanpassen</a> </td>
+</tr>
+{%  endfor %}
+
+</tbody>
+</table>
+{% endblock %}

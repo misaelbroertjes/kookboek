@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ingredient{% endblock %}
+
+{% block body %}
+
+    {% if app.request.query.get("error") == "001" %}
+    <div class="alert alert-danger">
+        Dit ingredient bestaat al.
+    </div>
+    {% endif %}
+    <form action="" name="ingredientForm" method="post" >
+        <div>
+            <h1>{{ ingredient.naam | default("Nieuw Ingredient") }}</h1>
+        </div>
+        <div class="form-group">
+            <label for="naam">Naam</label>
+            <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van product" value="{{ ingredient.naam | default("") }}">
+        </div>
+        <div class="form-group">
+            <label for="calorieen">Calorieën</label>
+            <input type="text" class="form-control" id="calorieen" name="calorieen" placeholder="Aantal calorieën van product" value="{{ ingredient.calorieen | default("")  }}">
+            <small>per 100 gram</small>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{{ ingredient.id | default("") }}">
+            <button type="submit" class="btn  btn-primary">Opslaan</button> <a href="{{ path('ingredienten') }}" class="btn btn-danger">Annuleren</a>
+        </div>
+    </form>
+{% endblock %}

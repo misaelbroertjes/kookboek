@@ -18,14 +18,14 @@ class Ingredient
     private $id;
 	
 	/**
-	 * @ORM\Column(type="string", length=200)
+	 * @ORM\Column(type="string", length=200, unique=true)
 	 */
 	private $naam;
     
     /**
-	 * @ORM\Column(type="float", length=100)
+	 * @ORM\Column(type="integer", length=20)
 	 */
- 	private $prijs;
+ 	private $calorieen;
 	
 	
 	// Getters en setters
@@ -64,18 +64,20 @@ class Ingredient
 	/**
 	 * @return mixed
 	 */
-	public function getPrijs()
+	public function getCalorieen()
 	{
-		return $this->prijs;
+		return $this->calorieen;
 	}
 	
 	/**
-	 * @param mixed $prijs
+	 * @param mixed $calorieen
 	 */
-	public function setPrijs($prijs): void
+	public function setCalorieen($calorieen): void
 	{
-		$this->prijs = $prijs;
+		$this->calorieen = $calorieen;
 	}
+	
+	
 	
 	
 	
