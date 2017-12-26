@@ -7,7 +7,7 @@
 <table class="table table-striped table-hover table-sm">
 <thead class="">
 <tr>
-    <th width="5%" class="col-sm-hidden">Id</th>
+    <th width="5%">Id</th>
     <th width="40%">Naam</th>
     <th width="15%">Calorieën</th>
     <th width="40%" class="text-right">
@@ -19,7 +19,7 @@
 
 {% for item in ingredienten %}
 <tr>
-    <td class="col-sm-hidden">{{ item.id }}</td>
+    <td>{{ item.id }}</td>
     <td>{{ item.naam }}</td>
     <td>{{ item.calorieen }}</td>
     <td class="text-right">

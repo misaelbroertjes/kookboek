@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Recepten{% endblock %}
+
+{% block header %}Recepten{% endblock %}
+
+{% block body %}
+<table class="table table-striped table-hover table-sm">
+<thead class="">
+<tr>
+    <th width="" class="col-sm-hidden">Id</th>
+    <th width="">Naam</th>
+    <th width="">Keywords</th>
+    <th width="">Afbeelding</th>
+    <th width="">Prijs</th>
+    <th width="">Ingredienten</th>
+    <th width="">Hoeveelheid</th>
+    <th width="">Opmerkingen</th>
+
+    <th width="" class="text-right">
+        <a href="{{ path('recept') }}" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> Nieuw</a>
+    </th>
+</tr>
+</thead>
+<tbody>
+
+{% for item in recepten %}
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.naam }}</td>
+    <td>{{ item.keywords | default('') }}</td>
+    <td>{{ item.image | default('') }}</td>
+    <td>{{ item.prijs | default('') }}</td>
+    <td>{{ item.ingredienten | default('') }}</td>
+    <td>{{ item.hoeveelheden | default('') }}</td>
+    <td>{{ item.opmerking | default('') }}</td>
+    <td class="text-right">
+        <a href="{{ path('recept') }}/{{ item.id }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Aanpassen</a>
+        <a href="{{ path('recept') }}/delete/{{ item.id }}" class="btn btn-danger btn-sm" onclick="return confirm('Weet je het zeker?')"><i class="fas fa-trash-alt" ></i> Delete</a>
+    </td>
+</tr>
+{%  endfor %}
+
+</tbody>
+</table>
+{% endblock %}

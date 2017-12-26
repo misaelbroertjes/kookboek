@@ -17,35 +17,42 @@ class Recept
     private $id;
 	
 	/**
-	 * @ORM\Column(type="string", length=400)
+	 * @ORM\Column(type="string", length=400, nullable=true)
 	 */
 	private $keywords;
 	
 	/**
-	 * @ORM\Column(type="string", length=200)
+	 * @ORM\Column(type="string", length=200, nullable=true)
 	 */
-	private $imgage;
+	private $naam;
 	
 	/**
-	 * @ORM\Column(type="float", length=10)
+	 * @ORM\Column(type="string", length=200, nullable=true)
+	 */
+	private $image;
+	
+	/**
+	 * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
 	 */
 	private $prijs;
 	
 	/**
-	 * @ORM\Column(type="string", length=500)
+	 * @ORM\Column(type="string", length=500, nullable=true)
 	 */
 	private $ingredienten;
 	
 	/**
-	 * @ORM\Column(type="string", length=500)
+	 * @ORM\Column(type="string", length=500, nullable=true)
 	 */
 	private $hoeveelheden;
 	
 	/**
-	 * @ORM\Column(type="string", length=500)
+	 * @ORM\Column(type="string", length=500, nullable=true)
 	 */
 	private $opmerking;
 	
+	
+	// Setters and Getters
 	/**
 	 * @return mixed
 	 */
@@ -60,6 +67,22 @@ class Recept
 	public function setId($id): void
 	{
 		$this->id = $id;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getNaam()
+	{
+		return $this->naam;
+	}
+	
+	/**
+	 * @param mixed $naam
+	 */
+	public function setNaam($naam): void
+	{
+		$this->naam = $naam;
 	}
 	
 	/**
@@ -81,17 +104,17 @@ class Recept
 	/**
 	 * @return mixed
 	 */
-	public function getImgage()
+	public function getImage()
 	{
-		return $this->imgage;
+		return $this->image;
 	}
 	
 	/**
-	 * @param mixed $imgage
+	 * @param mixed $image
 	 */
-	public function setImgage($imgage): void
+	public function setImgage($image): void
 	{
-		$this->imgage = $imgage;
+		$this->imgage = $image;
 	}
 	
 	/**
@@ -157,7 +180,4 @@ class Recept
 	{
 		$this->opmerking = $opmerking;
 	}
-
-    // Setters and Getters
-	
 }
