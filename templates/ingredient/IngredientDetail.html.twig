@@ -13,11 +13,11 @@
     <form action="" name="ingredientForm" method="post" >
         <div class="form-group">
             <label for="naam">Naam</label>
-            <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van product" value="{{ ingredient.naam | default("") }}">
+            <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van ingredient" value="{{ ingredient.naam | default("") }}">
         </div>
         <div class="form-group">
             <label for="calorieen">Calorieën</label>
-            <input type="text" class="form-control" id="calorieen" name="calorieen" placeholder="Aantal calorieën van product" value="{{ ingredient.calorieen | default("")  }}">
+            <input type="text" class="form-control" id="calorieen" name="calorieen" placeholder="Aantal calorieën van ingredient" value="{{ ingredient.calorieen | default("")  }}">
             <small>per 100 gram of per stuk</small>
         </div>
         <div class="form-group">
