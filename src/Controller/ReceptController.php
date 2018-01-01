@@ -69,6 +69,7 @@ class ReceptController extends Controller
 		$prijs = str_replace(',', '.', $prijs);
 		
 		$opmerking = $request->request->get('opmerking');
+		$keywords = $request->request->get('keywords');
 		/*$calorieen = $request->request->get('calorieen');
 		$eenheden = $request->request->get('eenheden');*/
 		$id = $request->request->get('id');
@@ -103,6 +104,7 @@ class ReceptController extends Controller
 		/*$recept->setCalorieen($calorieen);
 		$recept->setEenheden($eenheden);*/
 		$recept->setNaam($naam);
+		$recept->setKeywords($keywords);
 		$recept->setOpmerking($opmerking);
 		$recept->setPrijs($prijs);
 		
