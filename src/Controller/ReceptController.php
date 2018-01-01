@@ -25,6 +25,7 @@ class ReceptController extends Controller
 		
 		// Haal alle recepten op
 		$recepten = $repository->findAll();
+		dump($recepten);
 		return $this->render('recept/ReceptLijst.html.twig', ['recepten' => $recepten]);
 	}
 	

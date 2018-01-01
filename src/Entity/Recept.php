@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,9 +23,14 @@ class Recept
 	private $keywords;
 	
 	/**
+	 * @ORM\ManyToMany(targetEntity="App\Repository\ReceptenIngredientenRepository")
 	 * @ORM\Column(type="string", length=200, nullable=true)
 	 */
 	private $naam;
+	
+	public function __construct()	{
+		$this->naam = new ArrayCollection();
+	}
 	
 	/**
 	 * @ORM\Column(type="string", length=200, nullable=true)

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,9 +18,14 @@ class ReceptenIngredienten
     private $id;
 	
 	/**
-	 * @ORM\Column(type="integer")
+	 * @ORM\ManyToMany(targetEntity="App\Repository\ReceptenRepository")
+	 * @ORM\Column(type="string", length=200, nullable=true)
 	 */
-	private $receptId;
+	private $receptNaam;
+	
+	public function __construct()	{
+		$this->receptNaam = new ArrayCollection();
+	}
 	
 	/**
 	 * @ORM\Column(type="integer")
