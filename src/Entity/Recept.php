@@ -39,16 +39,6 @@ class Recept
 	/**
 	 * @ORM\Column(type="string", length=500, nullable=true)
 	 */
-	private $ingredienten;
-	
-	/**
-	 * @ORM\Column(type="string", length=500, nullable=true)
-	 */
-	private $hoeveelheden;
-	
-	/**
-	 * @ORM\Column(type="string", length=500, nullable=true)
-	 */
 	private $opmerking;
 	
 	
@@ -131,38 +121,6 @@ class Recept
 	public function setPrijs($prijs): void
 	{
 		$this->prijs = $prijs;
-	}
-	
-	/**
-	 * @return mixed
-	 */
-	public function getIngredienten()
-	{
-		return $this->ingredienten;
-	}
-	
-	/**
-	 * @param mixed $ingredienten
-	 */
-	public function setIngredienten($ingredienten): void
-	{
-		$this->ingredienten = $ingredienten;
-	}
-	
-	/**
-	 * @return mixed
-	 */
-	public function getHoeveelheden()
-	{
-		return $this->hoeveelheden;
-	}
-	
-	/**
-	 * @param mixed $hoeveelheden
-	 */
-	public function setHoeveelheden($hoeveelheden): void
-	{
-		$this->hoeveelheden = $hoeveelheden;
 	}
 	
 	/**

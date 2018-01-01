@@ -15,6 +15,14 @@ class ReceptenIngredienten
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    // add your own fields
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $receptId;
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $ingredientId;
 }
