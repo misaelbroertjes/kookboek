@@ -8,3 +8,6 @@
 .idea
 .idea/*
 src/Migrations/
+composer.json
+composer.lock
+symfony.lock
