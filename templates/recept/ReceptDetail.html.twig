@@ -4,6 +4,7 @@
 {% block extraIncludes %}
     {{ parent() }}
     <script src="{{ asset('js/keywords.js') }}" defer></script>
+    <script src="{{ asset('js/ingredientList.js') }}" defer></script>
 {% endblock %}
 
 {% block header %} {{ recept.naam | default("Nieuw recept") }} {% endblock %}
@@ -15,32 +16,44 @@
     </div>
     {% endif %}
     <form action="" name="receptForm" method="post" >
-        <div class="form-group">
-            <label for="naam">Naam</label>
-            <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van recept" value="{{ recept.naam | default("") }}">
-        </div>
-        <div class="form-group">
-            <label for="prijs">Prijs</label>
-            <input type="text" class="form-control" id="prijs" name="prijs" placeholder="Prijs van het recept" value="{{ recept.prijs | default("") }}">
-        </div>
-        <div class="form-group">
-            <label for="keywords">Keywords</label>
-            <input type="text" class="form-control" id="keywords" name="keywords" placeholder="Keywords van het recept" value="{{ recept.keywords | default("") }}">
-            <small>keywords gescheiden door een komma</small>
+        <div class="row form-group">
+            <div class="col-sm-12">
+                <label for="naam">Naam</label>
+                <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam van recept" value="{{ recept.naam | default("") }}">
+            </div>
         </div>
         <div class="row form-group">
-            <label for="ingredienten" class="col-sm-12">Ingredienten</label>
-            <div class="col-sm-6">
-                <select class="form-control" id="ingredienten">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+            <div class="col-sm-12">
+                <label for="prijs">Prijs</label>
+                <input type="text" class="form-control" id="prijs" name="prijs" placeholder="Prijs van het recept" value="{{ recept.prijs | default("") }}">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-12">
+                <label for="keywords">Keywords</label>
+                <input type="text" class="form-control" id="keywords" name="keywords" placeholder="Keywords van het recept" value="{{ recept.keywords | default("") }}">
+                <small>keywords gescheiden door een komma</small>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="ingredienten" name="ingredienten" value="" placeholder="id:ingrdient:hoeveelheid" >
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="ingredientenList" class="col-sm-12">Ingredienten</label>
+            <div class="col-sm-5">
+                <select class="form-control" id="ingredientenList">
+                    {% for ingredient in ingredienten %}
+                        <option value="{{ ingredient.id }}" id="ingredientOption{{ ingredient.id }}">{{ ingredient.naam }}</option>
+                    {% endfor %}
                 </select>
             </div>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="hoeveelheden" name="hoeveelheden" placeholder="Hoeveelheid" value="">
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="hoeveelheid" name="hoeveelheid" placeholder="Hoeveelheid" value="">
+            </div>
+            <div class="col-sm-2">
+                <a href="#" id="ingredientenAdd" class="btn btn-primary">Add</a>
             </div>
         </div>
         <div class="form-group">

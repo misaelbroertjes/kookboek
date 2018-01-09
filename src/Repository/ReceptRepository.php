@@ -25,4 +25,10 @@ class ReceptRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function addLinkedIngredienten()
+    {
+        //return $this->createQueryBuilder('')
+          //  ->where()
+    }
 }

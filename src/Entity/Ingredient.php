@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,11 @@ class Ingredient
 	private $eenheden;
 
     /**
+     * @ORM\Column(type="integer", length=500)
+     */
+    private $calorieen;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Recept", mappedBy="recepten")
      */
     private $recepten;
@@ -50,6 +56,24 @@ class Ingredient
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCalorieen()
+    {
+        return $this->calorieen;
+    }
+
+    /**
+     * @param mixed $calorieen
+     */
+    public function setCalorieen($calorieen): void
+    {
+        $this->calorieen = $calorieen;
+    }
+
+
 
     /**
      * @return mixed

@@ -36,11 +36,6 @@ class Recept
 	 * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
 	 */
 	private $prijs;
-
-	/**
-	 * @ORM\Column(type="string", length=500, nullable=true)
-	 */
-	private $hoeveelheden;
 	
 	/**
 	 * @ORM\Column(type="string", length=500, nullable=true)
@@ -135,22 +130,6 @@ class Recept
     public function setPrijs($prijs): void
     {
         $this->prijs = $prijs;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHoeveelheden()
-    {
-        return $this->hoeveelheden;
-    }
-
-    /**
-     * @param mixed $hoeveelheden
-     */
-    public function setHoeveelheden($hoeveelheden): void
-    {
-        $this->hoeveelheden = $hoeveelheden;
     }
 
     /**
