@@ -34,6 +34,7 @@ class Ingredient
 
     /**
      * @ORM\ManyToMany(targetEntity="Recept", mappedBy="recepten")
+	 * @ORM\JoinTable(name="recepten_ingredienten")
      */
     private $recepten;
 
