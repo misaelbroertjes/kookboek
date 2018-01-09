@@ -26,9 +26,25 @@ class ReceptRepository extends ServiceEntityRepository
     }
     */
 
-    public function addLinkedIngredienten()
+    public function findOneByIdJoinedToIngredienten($receptId)
     {
-        //return $this->createQueryBuilder('')
-          //  ->where()
+        $qb = $this->createQueryBuilder('r')
+			->where('r.id = :receptId')->setParameter('receptId', $receptId)
+			//->innerJoin()
+			//->innerjoin('r.id', 'i')
+			//->addSelect('i')
+			//->andWhere('recept.id = :id')
+			//->setParameter('id', $receptId)
+			->getQuery();
+	
+		return $qb->execute();
+	
+//		return $this->createQueryBuilder('p')
+//			->innerJoin('p.category', 'c')
+//			->addSelect('c')
+//			->andWhere('p.id = :id')
+//			->setParameter('id', $productId)
+//			->getQuery()
+//			->getOneOrNullResult();
     }
 }
