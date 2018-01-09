@@ -27,8 +27,6 @@ class ReceptController extends Controller
 		$recepten = $repository->findAll();
 		//$receptenCompleet = $repository->addLinkedIngredienten();
 
-//		dump ($ingredienten);
-		dump($recepten);
 		return $this->render('recept/ReceptLijst.html.twig', ['recepten' => $recepten]);
 	}
 
@@ -51,7 +49,6 @@ class ReceptController extends Controller
 
 		$ingredienten = $repositoryIngredienten->findAll();
 
-		dump ($ingredienten);
 		if($id != ""){
 			$recept = $repository->find($id);
 			return $this->render('recept/ReceptDetail.html.twig',array( 'recept' => $recept, 'ingredienten' => $ingredienten ) );
@@ -85,18 +82,7 @@ class ReceptController extends Controller
 		$ingredienten = $request->request->get('ingredienten');
         $ingredienten = substr($ingredienten, 0, -1);
 		$ingredienten = explode(",", $ingredienten);
-
-        // Maak een repo aan voor resultaten van de database
-        $repositoryIngredient = $this->getDoctrine()->getRepository(Ingredient::class);
-
-        foreach ($ingredienten as $ingredientId => $ingredient){
-            $ingredienten[$ingredientId] = new Ingredient();
-            $ingredienten[$ingredientId] = $repositoryIngredient->findBy(['id' => $ingredientId]);
-            //$ingredienten[$ingredientId]->setID();
-
-            //$ingredienten[$ingredientId] = explode(":", $ingredient);
-        }
-
+		
 		// Start de doctrine manager
 		$em = $this->getDoctrine()->getManager();
 		
@@ -108,8 +94,6 @@ class ReceptController extends Controller
 		    // haal bestaande info op
 			$recept = $em->getRepository(Recept::class)->find($id);
 		} else {
-		    echo $id;
-		    exit();
 			// als het gaat om een nieuw recept dan checken of de naam het al bestaat onder een andere id
 			$recept = $repository->findOneBy(['naam' => $naam]);
 			if($recept){
@@ -126,16 +110,21 @@ class ReceptController extends Controller
 		
 		// Vul het met de ontvangen waarden
 		$recept->setId($id);
-		/*$recept->setCalorieen($calorieen);
-		$recept->setEenheden($eenheden);*/
 		$recept->setNaam($naam);
 		$recept->setKeywords($keywords);
 		$recept->setOpmerking($opmerking);
 		$recept->setPrijs($prijs);
-		dump($ingredienten);
-		exit();
-		$recept->setIngredienten($ingredienten);
-
+		
+		// Vul met de ingredienten
+		$repositoryIngredienten = $this->getDoctrine()->getRepository(Ingredient::class);
+		
+		foreach ($ingredienten as $key => $value){
+			$value = explode(":", $value);
+			$ingredient[$value[0]] = $repositoryIngredienten->find($value[0]);
+		}
+		
+		$recept->setIngredienten($ingredient);
+		
 		// Geef aan het object te willen bewaren
 		$em->persist($recept);
 		

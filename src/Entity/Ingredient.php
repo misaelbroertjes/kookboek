@@ -73,8 +73,6 @@ class Ingredient
         $this->calorieen = $calorieen;
     }
 
-
-
     /**
      * @return mixed
      */
