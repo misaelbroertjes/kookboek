@@ -50,12 +50,12 @@ class ReceptController extends Controller
 		$ingredienten = $repositoryIngredienten->findAll();
 
 		if($id != ""){
-//			$recept = $repository->find($id);
 			$recept = $repository->findOneByIdJoinedToIngredienten($id);
-			
 			dump($recept);
-			
-			return $this->render('recept/ReceptDetail.html.twig',array( 'recept' => $recept, 'ingredienten' => $ingredienten ) );
+//			$recept = $repository->find($id);
+//			dump($recept);
+//			exit();
+			return $this->render('recept/ReceptDetail.html.twig',array( 'recept' => $recept[0], 'ingredienten' => $ingredienten ) );
 		} else{
 			return $this->render('recept/ReceptDetail.html.twig', array( 'ingredienten' => $ingredienten ) );
 		}

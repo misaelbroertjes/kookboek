@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Recept;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\Query\Expr\Join;
 
 class ReceptRepository extends ServiceEntityRepository
 {
@@ -29,16 +30,16 @@ class ReceptRepository extends ServiceEntityRepository
     public function findOneByIdJoinedToIngredienten($receptId)
     {
         $qb = $this->createQueryBuilder('r')
-			->where('r.id = :receptId')->setParameter('receptId', $receptId)
-			//->innerJoin()
-			//->innerjoin('r.id', 'i')
-			//->addSelect('i')
-			//->andWhere('recept.id = :id')
-			//->setParameter('id', $receptId)
-			->getQuery();
-	
-		return $qb->execute();
-	
+            ->where('r.id = :receptId')->setParameter('receptId', $receptId)
+//			->innerJoin()
+//			->innerjoin('r.id', 'i')
+//			->addSelect('i')
+//          ->innerJoin('r', 'recepten', 'p', 'r.id = p.id')
+            ->innerJoin('id.recepten', 'p', Join::ON, 'c.id = p.ingredientId')
+            ->getQuery();
+
+        return $qb->execute();
+
 //		return $this->createQueryBuilder('p')
 //			->innerJoin('p.category', 'c')
 //			->addSelect('c')
