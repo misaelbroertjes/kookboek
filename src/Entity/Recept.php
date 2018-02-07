@@ -44,8 +44,10 @@ class Recept
 	private $opmerking;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ingredient", inversedBy="recepten", fetch="EAGER")
-     * @ORM\JoinTable(name="recepten_ingredienten")
+//     * @ORM\ManyToMany(targetEntity="Ingredient", inversedBy="recepten", fetch="EAGER")
+//     * @ORM\JoinTable(name="recepten_ingredienten")
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\ReceptIngredient", inversedBy="recepten")
      */
     private $ingredienten;
 
