@@ -50,12 +50,12 @@ class ReceptController extends Controller
 		$ingredienten = $repositoryIngredienten->findAll();
 
 		if($id != ""){
-			$recept = $repository->findOneByIdJoinedToIngredienten($id);
-			dump($recept);
-//			$recept = $repository->find($id);
+//			$recept = $repository->findOneByIdJoinedToIngredienten($id);
 //			dump($recept);
+			$recept = $repository->find($id);
+			dump($recept);
 //			exit();
-			return $this->render('recept/ReceptDetail.html.twig',array( 'recept' => $recept[0], 'ingredienten' => $ingredienten ) );
+			return $this->render('recept/ReceptDetail.html.twig',array( 'recept' => $recept, 'ingredienten' => $ingredienten ) );
 		} else{
 			return $this->render('recept/ReceptDetail.html.twig', array( 'ingredienten' => $ingredienten ) );
 		}
@@ -124,7 +124,7 @@ class ReceptController extends Controller
 		
 		foreach ($ingredienten as $key => $value){
 			$value = explode(":", $value);
-			$ingredient[$value[0]] = $repositoryIngredienten->find($value[0]);
+			$ingredient[] = $repositoryIngredienten->find($value[0]);
 		}
 		
 		// Koppel de ingredienten aan het recept

@@ -37,7 +37,7 @@
         </div>
         <div class="row form-group">
             <div class="col-sm-12">
-                <input type="text" class="form-control" id="ingredienten" name="ingredienten" value="" placeholder="id:ingrdient:hoeveelheid" >
+                <input type="text" class="form-control" id="ingredienten" name="ingredienten" value="{% if recept is defined %}{% for ingredient in recept.ingredienten %} {{ ingredient.id  }}:{{ ingredient.naam  }}: ,{% endfor %} {% endif  %}" placeholder="id:ingrdient:hoeveelheid" >
             </div>
         </div>
         <div class="row form-group">
