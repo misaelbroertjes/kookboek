@@ -33,9 +33,7 @@ class Ingredient
     private $calorieen;
 
     /**
-//     * @ORM\ManyToMany(targetEntity="Recept", mappedBy="recepten")
-//	 * @ORM\JoinTable(name="recepten_ingredienten")
-     * @ORM\OneToMany(targetEntity="App\Entity\ReceptIngredient", inversedBy="Ingredienten")
+     * @ORM\OneToMany(targetEntity="App\Entity\ReceptIngredient", mappedBy="ingredientId")
      */
     private $recepten;
 

@@ -17,13 +17,13 @@ class ReceptIngredient
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Recept", inversedBy="ReceptIngredient")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recept", inversedBy="ingredienten")
      * @ORM\JoinColumn(name="receptId", referencedColumnName="id", nullable=FALSE)
      */
     private $receptId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ingredient", inversedBy="ReceptIngredient")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ingredient", inversedBy="recepten")
      * @ORM\JoinColumn(name="$ingredientId", referencedColumnName="id", nullable=FALSE)
      */
     private $ingredientId;
